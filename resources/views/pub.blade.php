@@ -9,21 +9,21 @@
     </ul>
 
 @endif
-<form action="add-drink" method ="post">
+<form action="manual" method ="post">
     {{csrf_field()}}
     <p>
         <label for="">Név:</label>
-        <input type="text" name="name" placeholder="Név">
+        <input type="text" name="name" value = "{{old('name')}}"placeholder="Név">
 
     </p>
     <p>
         <label for="">Típus:</label>
-        <input type="text" name="type" placeholder="Típus">
+        <input type="text" name="type" value="{{('type')}}" placeholder="Típus">
         
     </p>
     <p>
         <label for="">Kiszerelés:</label>
-        <input type="text" name="quantity" placeholder="Kiszerelés">
+        <input type="text" name="quantity" value="{{('quantity')}}" placeholder="Kiszerelés">
         
     </p>
     <p>

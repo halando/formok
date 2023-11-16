@@ -22,6 +22,5 @@ Route::get("/drink", [PubController::class, "getDrink"]);
 Route::post("/submit-drink",[PubController::class, "subDrink"]);
 Route::post("/new-drink",[PubController::class, "newDrink"]);
 Route::post("/add-drink",[PubController::class, "addDrink"]);
+Route::post("/manual",[PubController::class,"manual"]);
 
-Route::get("/animal", [PetsController::class, "getAnimal"]);
-Route::post("/submit-animal",[PetsController::class, "subAnimal"]);

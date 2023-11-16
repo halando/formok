@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\http\Requests\StoreDrink;
+use Illuminate\Support\Facades\Validator;
 class PubController extends Controller
 {
     public function getDrink(){
@@ -35,9 +36,25 @@ class PubController extends Controller
     $request->validated();
     print_r($request->all());
   }
+ 
+
   public function messages(){
     return[
       "name.required" => "Név elvárt"
     ];
+  }
+  public function manual(Request $request){
+
+    $validate = Validator::make($request->all(), [
+      "name"=>"required",
+      "type"=>"required",
+      "quantity"=>"required"
+    ],[
+      "name.required"=>"A Név mező elvárt"
+    ]);
+    if( $validate->fails() ){
+      return redirect("drink")->withErrors($validate)->withInput();
+    }
+  print_r($request->all());
   }
 }
